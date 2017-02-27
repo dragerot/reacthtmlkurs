@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Drag And Drop</title>
+        <!-- Place favicon.ico in the root directory -->
+        <!--<link rel="stylesheet" href="css/normalize.css">-->
+        <!--<link rel="stylesheet" href="css/main.css">-->
+        <!--<script src="js/vendor/modernizr-2.8.3.min.js"></script>-->
+    </head>
+    <body>
+        <!--<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>-->
+        <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>-->
+        <!--<script src="js/plugins.js"></script>-->
+        <!--<script src="js/main.js"></script>-->
+
+       <script>
+           function  allowDropping(event) {
+            event.preventDefault();
+           }
+           function dragging(event) {
+               event.dataTransfer.setData("Text",event.target.id);
+           }
+           function dropping(event){
+               event.preventDefault();
+               var info = event.dataTransfer.getData("Text");
+               event.target.appendChild(document.getElementById(info))
+           }
+
+
+        </script>
+
+   <
+    <div id ="resultat">
+        <b id="felt">hallo feit</b>
+    </div>
+    <div id="dropframe"
+         ondrop="dropping()"
+         ondragover="allowDropping()"
+         style="with: 325px; height: 250px; background-color:#906 ">
+    </div>
+    <img id="sunsetpic"
+         src="meg.jpg"
+         draggable="true"
+         ondragstart="dragging()"
+         style="with: 325px; height: 250px; ">
+    />
+    </body>
+</html>
